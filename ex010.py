@@ -11,6 +11,5 @@ BASE = 'USD'
 response = requests.request('GET', URL + 'Key=' + SECRET + '&base=' + BASE)
 json = json.loads(response.content)
 value = (json['rates']['BRL'])
-rounded_value = round(value, 3)
-formatted_str = str(rounded_value).replace('.', ',')
+formatted_str = str('{:.3f}'.format(value)).replace('.', ',')
 print(f'R${formatted_str}')
